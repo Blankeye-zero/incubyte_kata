@@ -15,5 +15,11 @@ void main() {
       final value = instance.add("1");
       expect(value, 1);
     });
+
+     test('Test for two numbers provided as string', () {
+      final StringCalculator instance = StringCalculator();
+      final value = instance.add("1,3");
+      expect(value, 4);
+    });
   });
 }
