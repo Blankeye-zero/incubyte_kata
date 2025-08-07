@@ -10,6 +10,7 @@ class StringCalculator {
     }
     //looked up regular expression after test no.5
     RegExp delimeterPattern = RegExp(r'[,\n]');
+    // Regular Expression for delimeters , and \n
     List<int> givenNumbers = numbers
         .split(delimeterPattern)
         .map((stringNumber) => int.parse(stringNumber))

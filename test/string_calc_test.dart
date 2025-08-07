@@ -39,5 +39,12 @@ void main() {
       final value = instance.add("1,16\n10,2\n1");
       expect(value, 30);
     });
+
+    test('Test for Supporting dynamic delimeters',(){
+      final StringCalculator instance = StringCalculator();
+      final value = instance.add("//;\n1,16\n10,2\n1");
+      expect(value, 30);
+    });
+    
   });
 }
