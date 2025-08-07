@@ -51,6 +51,12 @@ void main() {
       final value = instance.add("//|\n1,16\n10|2\n1|2");
       expect(value, 32);
     });
+
+    test('Test for Supporting dynamic delimeters',(){
+      final StringCalculator instance = StringCalculator();
+      expect(() => instance.add("//|\n-3,16\n10|2\n1|2"), throwsA(predicate((e) => e is NegativeNumberException && e.message == 'Negative Numbers not allowed: -3')));
+    });
+    
     
   });
 }

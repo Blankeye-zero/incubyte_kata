@@ -1,3 +1,8 @@
+class NegativeNumberException implements Exception{
+    final String message;
+    NegativeNumberException(this.message) :super();
+}
+
 class StringCalculator {
   int add(String numbers) {
     //Input String of comma seperated numbers
@@ -19,7 +24,12 @@ class StringCalculator {
 
     List<int> givenNumbers = numbers
         .split(delimeterPattern)
-        .map((stringNumber) => int.parse(stringNumber))
+        .map((stringNumber) {
+          if(int.parse(stringNumber).isNegative){
+            throw NegativeNumberException('Negative Numbers not allowed: ${int.parse(stringNumber)}');
+          }
+          return int.parse(stringNumber);
+        })
         .toList();
 
     for (int number in givenNumbers) {
