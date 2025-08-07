@@ -27,5 +27,11 @@ void main() {
       final value = instance.add("1,3,8");
       expect(value, 12);
     });
+
+    test('Test for newlines along with commas as delimeters',(){
+      final StringCalculator instance = StringCalculator();
+      final value = instance.add("1,3\n8");
+      expect(value, 12);
+    });
   });
 }
