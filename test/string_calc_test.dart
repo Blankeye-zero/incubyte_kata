@@ -52,9 +52,9 @@ void main() {
       expect(value, 32);
     });
 
-    test('Test for Supporting dynamic delimeters',(){
+    test('Test for Checking if Negative Numbers are present',(){
       final StringCalculator instance = StringCalculator();
-      expect(() => instance.add("//|\n-3,16\n10|2\n1|2"), throwsA(predicate((e) => e is NegativeNumberException && e.message == 'Negative Numbers not allowed: -3')));
+      expect(() => instance.add("//|\n-3,16\n10|2\n1|2|-5"), throwsA(predicate((e) => e is NegativeNumberException && e.message == 'Negative Numbers not allowed: -3,-5')));
     });
     
     
