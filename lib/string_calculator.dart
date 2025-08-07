@@ -12,10 +12,11 @@ class StringCalculator {
     RegExp delimeterPattern = RegExp(r'[,\n]');
     // Regular Expression for delimeters , and \n
     if(numbers.startsWith('//')){
-        String newDelimeterPattern =  '[,\n${numbers.split('\\n').first.replaceAll('//', '')}]';
-        
-        delimeterPattern = RegExp(newDelimeterPattern);
+        String newDelimeter =  numbers.split('\n').first.replaceAll('//', '');
+        delimeterPattern =  RegExp('[,\n$newDelimeter]');   
+        numbers = numbers.substring(4);
     }
+
     List<int> givenNumbers = numbers
         .split(delimeterPattern)
         .map((stringNumber) => int.parse(stringNumber))
